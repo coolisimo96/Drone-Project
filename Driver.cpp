@@ -3,6 +3,7 @@
 #include "drone.h"
 
 int main() {
-    std::cout << "Test" << std::endl;
+    ControlCenter* DCAS = new ControlCenter(7,7);
+
     return 0;
 }
