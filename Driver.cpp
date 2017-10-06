@@ -1,6 +1,5 @@
-#include <iostream>
 #include "controlCenter.h"
-#include "drone.h"
+#include "Drone.h"
 
 int main() {
     ControlCenter* DCAS = new ControlCenter(7,7);

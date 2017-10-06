@@ -13,7 +13,9 @@ ControlCenter::ControlCenter(int x, int y) {
         for(int j=0;j<y;j++){
             _map[i].emplace_back(vector<Coordinate>());
             for(int k=0;k<4;k++){
-                _map[i][j].emplace_back(new Coordinate(i,j,k));
+                _map[i][j].emplace_back(Coordinate(i,j,k));
+                _map[i][j][k].setCategory(1);
+                cout<<_map[i][j][k].getX()<<","<<_map[i][j][k].gety()<<","<<_map[i][j][k].getz()<<endl;
             }
         }
     }
@@ -21,11 +23,12 @@ ControlCenter::ControlCenter(int x, int y) {
         for(int j=0;j<y;j++){
             if(i==0 || i==x-1 || j==0 || j==y-1){
                 _taskList.emplace_back( _map[j][i][0]);
-                cout << _taskList[flag].getX() << ","<<_taskList[flag].gety()<<std::endl;
+                //cout << _taskList[flag].getX() << ","<<_taskList[flag].gety()<<std::endl;
                 ++flag;
             }
         }
     }
+    _map[x/2][y/2][0].setCategory(0);
 
 }
 

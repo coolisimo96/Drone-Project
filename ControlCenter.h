@@ -6,7 +6,7 @@
 #define CSE321_PROJECT_1_CONTROLCENTER_H
 
 
-#include "Drone.cpp"
+#include "Drone.h"
 #include <vector>
 using namespace std;
 
@@ -15,7 +15,7 @@ private:
     int _x;
     int _y;
     int _z;
-
+    int _category;
 public:
     Coordinate(int x, int y, int z){
         _x=x;
@@ -30,6 +30,18 @@ public:
     }
     int getz(){
         return _z;
+    }
+    int getCategory(){
+        return _category;
+    }
+    /*
+     * Sets the category of the coordinate
+     * 0=Center
+     * 1=Drop Off Point
+     * 2=Hover Point
+     */
+    void setCategory(int cat){
+        _category=cat;
     }
 };
 
