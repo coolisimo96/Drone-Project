@@ -39,8 +39,8 @@ vector<Coordinate> ControlCenter::getTaskList() {
  * Returns a rancomly selected coordinate from the list of available drop off locations for a drone to attempt to reach
  */
 Coordinate ControlCenter::assignTask() {
-    int rand = rand() % _taskList.size();
-    return _taskList[rand];
+    int randNum = rand() % _taskList.size();
+    return _taskList[randNum];
 }
 /*
  * Generates a vector containing coordinates which are determined as available for a drone to drop off a payload
