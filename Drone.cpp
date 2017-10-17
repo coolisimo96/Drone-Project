@@ -6,18 +6,20 @@
  * Creates a drone which moves with a random speed, between 1 unit per move and 3
  */
 Drone::Drone() {
-    _speed = rand()%3+1;
-
+    _destination;
 }
 /*
  * Returns the speed of the drone
  */
-int Drone::getSpeed(){
-    return _speed;
+Coordinate& Drone::getDestination() {
+    return _destination;
 }
-Coordinate Drone::getDestination() {
-    //return _destination;
+Coordinate& Drone::getLocation() {
+    return _location;
 }
 void Drone::setDestination(Coordinate newDest){
-    //_destination = newDest;
+    _destination = newDest;
+}
+void Drone::setLoctation(Coordinate newLoc){
+    _location = newLoc;
 }

@@ -12,31 +12,30 @@ private:
     mutex _occupied;
     int _x;
     int _y;
-    int _z;
     int _category;
 public:
-    Coordinate(int x, int y, int z);
+    Coordinate();
+    Coordinate(int x, int y);
+    int getX();
+    int getY();
+    int getCategory();
+    bool occupySpace();
+
+    bool operator==(Coordinate& rhs)const{
+        if((rhs.getX()==_x)&&(rhs.getY()==_y)){
+            return true;
+        }
+        else{return false;}
+    }
     Coordinate(const Coordinate& other){
         _x=other._x;
         _y=other._y;
-        _z=other._y;
+        _category=other._category;
     }
     Coordinate& operator=(const Coordinate &other) {
         _x=other._x;
         _y=other._y;
-        _z=other._z;
     }
-    int getX();
-    int gety();
-    int getz();
-    int getCategory();
-    bool occupySpace();
-    /*
-     * Sets the category of the coordinate
-     * 0=Center
-     * 1=Drop Off Point
-     * 2=Hover Point
-     */
-    void setCategory(int cat);
 };
+
 #endif //CSE321_PROJECT_1_COORDINATE_H

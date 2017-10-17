@@ -6,11 +6,15 @@
  * Constructs a coordinate, a unit which may be "occupied" by exactly one drone and is categorized by what it
  * describes(see comment for setCategory)
  */
-Coordinate::Coordinate(int x, int y, int z){
+Coordinate::Coordinate(int x, int y){
     _x=x;
     _y=y;
-    _z=z;
 }
+Coordinate::Coordinate() {
+    _x=0;
+    _y=0;
+}
+
 /*
  * Returns x value of Coordinate
  */
@@ -20,14 +24,8 @@ int Coordinate::getX(){
 /*
  * Returns y value of Coordinate
  */
-int Coordinate::gety(){
+int Coordinate::getY(){
     return _y;
-}
-/*
- * Returns z value of Coordinate
- */
-int Coordinate::getz(){
-    return _z;
 }
 /*
  * Returns category of Coordinate
@@ -40,13 +38,4 @@ int Coordinate::getCategory(){
  */
 bool Coordinate::occupySpace(){
     return _occupied.try_lock();
-}
-/*
- * Sets the category of the coordinate
- * 0=Center
- * 1=Drop Off Point
- * 2=Hover Point
- */
-void Coordinate::setCategory(int cat){
-    _category=cat;
 }

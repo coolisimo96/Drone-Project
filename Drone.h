@@ -9,14 +9,17 @@
 #include "Coordinate.h"
 class Drone{
 private:
-        int _speed;
+        Coordinate _destination;
+        Coordinate _location;
 public:
     Drone();
-    Drone& operator=(const Drone& other){
-        _speed=other._speed;
+    Drone(const Drone& other){
     }
-    int getSpeed();
-    Coordinate getDestination();
+    Drone& operator=(const Drone& other){
+    }
+    Coordinate& getDestination();
+    Coordinate& getLocation();
+    void setLoctation(Coordinate newLoc);
     void setDestination(Coordinate newDest);
 };
 #endif //CSE321_PROJECT_1_DRONE_H

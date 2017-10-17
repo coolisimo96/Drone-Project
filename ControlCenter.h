@@ -13,24 +13,22 @@ using namespace std;
 
 class ControlCenter{
 private:
-    vector<Drone> _Drones;
-    vector<vector<vector<Coordinate>>> _map;
+    int _x,_y;
+    vector<Drone> _drones;
+    vector<vector<Coordinate>> _map;
     vector<Coordinate> _taskList;
     vector<Coordinate> _hoverList;
 public:
     ControlCenter(int x,int y);
-
     ~ControlCenter();
 
-    Coordinate assignTask();
-
-    void registerDrone(Drone newDrone);
-
+    void registerDrones(vector<Drone>& drones);
     void generateTaskList(int x, int y);
     void generateHoverList(int x,int y);
-    vector<Coordinate> getTaskList();
-
+    void printMap();
+    vector<Coordinate> getHoverList();
     vector<Drone> getDrones();
-
+    Coordinate assignTask();
+    Coordinate getLocation(int x, int y);
 };
 #endif //CSE321_PROJECT_1_CONTROLCENTER_H
