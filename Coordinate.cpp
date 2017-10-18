@@ -27,15 +27,26 @@ int Coordinate::getX(){
 int Coordinate::getY(){
     return _y;
 }
-/*
- * Returns category of Coordinate
- */
-int Coordinate::getCategory(){
+
+int Coordinate::getCount(){
+   return _count;
+}
+void Coordinate::addCount(){
+    _count=_count +1;
+}
+int Coordinate::getCategory() {
     return _category;
+}
+void Coordinate::setCategory(int cat) {
+    _category=cat;
 }
 /*
  * Attempts to lock a drone to the coordinate, or returns false if a drone is already located there
  */
 bool Coordinate::occupySpace(){
+    _isOccupied=true;
     return _occupied.try_lock();
+}
+bool Coordinate::getOcc() {
+    return _isOccupied;
 }

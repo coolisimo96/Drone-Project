@@ -14,12 +14,17 @@ private:
 public:
     Drone();
     Drone(const Drone& other){
+        _destination=other._destination;
+        _location=other._location;
     }
     Drone& operator=(const Drone& other){
+        _destination=other._destination;
+        _location=other._location;
     }
     Coordinate& getDestination();
     Coordinate& getLocation();
     void setLoctation(Coordinate newLoc);
     void setDestination(Coordinate newDest);
+    Coordinate move();
 };
 #endif //CSE321_PROJECT_1_DRONE_H

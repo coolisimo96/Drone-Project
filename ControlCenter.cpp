@@ -43,7 +43,9 @@ void ControlCenter::generateTaskList(int x, int y) {
     for(int i=0;i<x;i++){
         for(int j=0;j<y;j++){
             if(i==0 || i==x-1 || j==0 || j==y-1){
+                _map[i][j].addCount();
                 _taskList.emplace_back( _map[i][j]);
+                _map[i][j].setCategory(1);
                 //cout <<"TaskSpot: "<< _taskList[flag].getX() << ","<<_taskList[flag].gety()<<std::endl;
                 ++flag;
             }
@@ -68,13 +70,12 @@ void ControlCenter::generateHoverList(int x, int y) {
 }
 void ControlCenter::registerDrones(vector<Drone>& drones) {
     _drones=drones;
-    cout<<_drones[0].getLocation().getX()<<endl;
 }
 
-vector<Drone> ControlCenter::getDrones() {
+vector<Drone>& ControlCenter::getDrones() {
     return _drones;
 }
-Coordinate ControlCenter::getLocation(int x, int y){
+Coordinate& ControlCenter::getLocation(int x, int y){
     return _map[x][y];
 }
 void ControlCenter::printMap(){
@@ -87,8 +88,11 @@ void ControlCenter::printMap(){
                 else if ((i == (_x * 3) / 2) && (j == _y / 2)) {
                     cout << "|  DCAC  ";
                 }
-                else if(((i/4)==_drones[0].getLocation().getX())&&(j==_drones[0].getLocation().getY())){
-                    cout<<"|  D0"<<"    ";
+                else if((_map[i/3][j].getOcc())&&(i%2==1)){
+                    cout<<"|  D"<<i/3<<"    ";
+                }
+                else if((_map[i/3][j].getCategory()==1)&&(i%2==0)){
+                    cout<<"|  "<<_map[i/3][j].getCount()<<"     ";
                 }
                 else {
                     cout << "|        ";

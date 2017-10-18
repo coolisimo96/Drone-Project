@@ -12,14 +12,21 @@ private:
     mutex _occupied;
     int _x;
     int _y;
-    int _category;
+    int _category=0;
+    int _count=0;
+    bool _isOccupied=false;
 public:
     Coordinate();
     Coordinate(int x, int y);
     int getX();
     int getY();
+    int getCount();
     int getCategory();
     bool occupySpace();
+    bool getOcc();
+    void addCount();
+    void setCategory(int cat);
+
 
     bool operator==(Coordinate& rhs)const{
         if((rhs.getX()==_x)&&(rhs.getY()==_y)){

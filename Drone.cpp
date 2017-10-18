@@ -23,3 +23,6 @@ void Drone::setDestination(Coordinate newDest){
 void Drone::setLoctation(Coordinate newLoc){
     _location = newLoc;
 }
+Coordinate Drone::move() {
+
+}

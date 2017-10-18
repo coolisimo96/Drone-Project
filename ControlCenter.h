@@ -27,8 +27,8 @@ public:
     void generateHoverList(int x,int y);
     void printMap();
     vector<Coordinate> getHoverList();
-    vector<Drone> getDrones();
+    vector<Drone>& getDrones();
     Coordinate assignTask();
-    Coordinate getLocation(int x, int y);
+    Coordinate& getLocation(int x, int y);
 };
 #endif //CSE321_PROJECT_1_CONTROLCENTER_H
