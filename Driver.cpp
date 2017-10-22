@@ -28,7 +28,7 @@ int main(int argc, char**argv) {
     droneThreads.push_back(thread(&ControlCenter::printMap,DCAS));
 
     for(int i=0;i<droneNum;i++){
-        droneThreads.push_back(thread(DCAS->moveDrones,DCAS,i));
+        droneThreads.push_back(thread(&ControlCenter::moveDrones,DCAS,i));
     }
 
     for(int i=0;i<droneNum;i++){
