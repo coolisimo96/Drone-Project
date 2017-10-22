@@ -1,4 +1,4 @@
-#include "controlCenter.h"
+#include "ControlCenter.h"
 #include <thread>
 #include <iostream>
 using namespace std;
