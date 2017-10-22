@@ -40,6 +40,9 @@ int Coordinate::getCategory() {
 void Coordinate::setCategory(int cat) {
     _category=cat;
 }
+void Coordinate::unlockLoc() {
+    _occupied.unlock();
+}
 /*
  * Attempts to lock a drone to the coordinate, or returns false if a drone is already located there
  */

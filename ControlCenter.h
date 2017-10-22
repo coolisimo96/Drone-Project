@@ -18,6 +18,7 @@ private:
     vector<vector<Coordinate>> _map;
     vector<Coordinate> _taskList;
     vector<Coordinate> _hoverList;
+    bool isDroneSpot(int i, int j);
 public:
     ControlCenter(int x,int y);
     ~ControlCenter();
@@ -27,8 +28,8 @@ public:
     void generateHoverList(int x,int y);
     void printMap();
     vector<Coordinate> getHoverList();
-    vector<Drone>& getDrones();
-    Coordinate assignTask();
-    Coordinate& getLocation(int x, int y);
+    Coordinate& assignTask();
+    void moveDrones(int i);
+    void moveDronesHelper(int index, int direction);
 };
 #endif //CSE321_PROJECT_1_CONTROLCENTER_H

@@ -5,7 +5,7 @@
 #ifndef CSE321_PROJECT_1_COORDINATE_H
 #define CSE321_PROJECT_1_COORDINATE_H
 
-#include "mingw.mutex.h"
+#include <mutex>
 using namespace std;
 class Coordinate{
 private:
@@ -26,7 +26,7 @@ public:
     bool getOcc();
     void addCount();
     void setCategory(int cat);
-
+    void unlockLoc();
 
     bool operator==(Coordinate& rhs)const{
         if((rhs.getX()==_x)&&(rhs.getY()==_y)){

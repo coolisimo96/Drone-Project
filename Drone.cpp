@@ -17,12 +17,27 @@ Coordinate& Drone::getDestination() {
 Coordinate& Drone::getLocation() {
     return _location;
 }
-void Drone::setDestination(Coordinate newDest){
+void Drone::setDestination(Coordinate& newDest){
     _destination = newDest;
 }
-void Drone::setLoctation(Coordinate newLoc){
+void Drone::setLoctation(Coordinate& newLoc){
     _location = newLoc;
 }
-Coordinate Drone::move() {
-
+void Drone::isUsing() {
+    _inUse=true;
+}
+void Drone::loadDrone(bool flag) {
+    _hasPayLoad = flag;
+}
+void Drone::gettingPayload(bool flag) {
+    _gettingPayload=flag;
+}
+bool Drone::isGettingPayload(){
+    return _gettingPayload;
+}
+bool Drone::isInuse() {
+    return _inUse;
+}
+bool Drone::hasPayload() {
+    return _hasPayLoad;
 }
